@@ -13,7 +13,7 @@
   <script>
     async function submitCode() {
       const code = document.getElementById('codeInput').value;
-      const res = await fetch('https://node65.lunes.host:3066/check_code', {
+      const res = await fetch('node65.lunes.host:3066/check_code', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ code: code })
