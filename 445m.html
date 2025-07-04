@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Code</title>
+</head>
+<body>
+  <h1>Enter Code</h1>
+  <input type="text" id="codeInput" placeholder="Enter code">
+  <button onclick="submitCode()">Enter</button>
+  <p id="result"></p>
+
+  <script>
+    async function submitCode() {
+      const code = document.getElementById('codeInput').value;
+      const res = await fetch('http://node65.lunes.host:3066/check_code', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ code: code })
+      });
+      const data = await res.json();
+      document.getElementById('result').innerHTML = data.message;
+    }
+  </script>
+</body>
+</html>
